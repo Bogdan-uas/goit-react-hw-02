@@ -3,6 +3,8 @@
   line-height: 1.5;
   font-weight: 400;
   
+  background-color: #dbdbdb;
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -46,4 +48,18 @@ ol {
 img {
   display: block;
   max-width: 100%;
+}
+
+.visually_hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
