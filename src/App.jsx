@@ -12,16 +12,20 @@ function App() {
 	bad: 0
   })
   
-  const updateFeedback = feedbackType => {
-    setFeedback(feedbackType + 1);
-  }
+  const updateFeedback = (feedbackType) => {
+    setFeedback({
+      ...feedback,
+      [feedbackType]: [feedbackType] + 1,
+    });
+  };
+  
 
   return (
     <>
     <h1 className='main-title'>Homework React 2</h1>
     <div className='main-container'>
     <Description />
-    <Options onClick={updateFeedback} />
+    <Options onClick={() => updateFeedback("good", "neutral", "bad")}/>
     <Feedback
       good={feedback.good}
       neutral={feedback.neutral}
