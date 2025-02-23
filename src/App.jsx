@@ -1,17 +1,22 @@
 import './App.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Description from './components/Description/Description.jsx';
 import Options from './components/Options/Options.jsx'
 import Feedback from './components/Feedback/Feedback.jsx'
 import Notification from './components/Notification/Notification.jsx';
 
 function App() {
+  
+  const getInitialFeedback = () => {
+    const savedFeedback = localStorage.getItem('feedback');
+    return savedFeedback ? JSON.parse(savedFeedback) : { good: 0, neutral: 0, bad: 0 };
+  };
 
-  const [feedback, setFeedback] = useState({
-	good: 0,
-	neutral: 0,
-	bad: 0
-  })
+  const [feedback, setFeedback] = useState(getInitialFeedback);
+  
+  useEffect(() => {
+    localStorage.setItem('feedback', JSON.stringify(feedback));
+  }, [feedback]);
   
   const updateFeedback = (feedbackType) => {
     setFeedback((getFeedback) => ({
@@ -27,33 +32,26 @@ function App() {
   
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
   
-  if (totalFeedback === 0) {
-    return (
+  return (
     <>
-    <h1 className='main-title'>Homework React 2</h1>
-    <div className='main-container'>
-    <Description />
-        <Options updateFeedback={updateFeedback} />
-      <Notification />
-    </div>
-    </>
-  )
-  } else {
-    return (
-    <>
-    <h1 className='main-title'>Homework React 2</h1>
-    <div className='main-container'>
-    <Description />
+      <div className='main-container'>
+        <Description />
         <Options updateFeedback={updateFeedback} resetFeedback={resetFeedback} totalFeedback={totalFeedback} />
-        <Feedback
-      good={feedback.good}
-      neutral={feedback.neutral}
-      bad={feedback.bad}
-    />
-    </div>
+        
+        {totalFeedback === 0 ? (
+          <Notification />
+        ) : (
+          <Feedback
+            good={feedback.good}
+            neutral={feedback.neutral}
+            bad={feedback.bad}
+            total={totalFeedback}
+            percentage={Math.round((feedback.good / totalFeedback) * 100)}
+          />
+        )}
+      </div>
     </>
-  )
+  );
   }
-}
 
 export default App

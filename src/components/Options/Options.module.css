@@ -3,3 +3,39 @@
     gap: 4px;
     margin-bottom: 16px;
 }
+
+.options_button {
+    display: flex;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: .02em;
+    padding: 10px 20px;
+    background-color: #747bff;
+    color: #f1f4fd;
+    border-radius: 8px;
+    border: none;   
+    transition: 500ms ease;
+}
+
+.options_button:hover {
+    background-color: blue;
+    color: #fff;
+}
+
+.options_reset_button {
+    display: flex;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: .02em;
+    padding: 10px 20px;
+    background-color: #fa5256;
+    color: #f1f4fd;
+    border-radius: 8px;
+    border: none;
+    transition: 500ms ease;
+}
+
+.options_reset_button:hover {
+    background-color: red;
+    color: #fff;
+} 

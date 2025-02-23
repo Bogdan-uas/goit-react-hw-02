@@ -25,7 +25,7 @@ return (
         Bad
     </button>
     {totalFeedback > 0 && (
-    <button type="button" onClick={resetFeedback} className={style.options_button}>
+    <button type="button" onClick={resetFeedback} className={style.options_reset_button}>
     Reset
     </button>
 )}

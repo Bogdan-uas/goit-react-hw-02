@@ -4,3 +4,18 @@
     flex-direction: column;
     margin-bottom: 16px;
 }
+
+.main_title {
+    margin-bottom: 16px;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.11;
+    text-transform: capitalize;
+}
+
+.description_text {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.11;
+    text-align: center;
+}

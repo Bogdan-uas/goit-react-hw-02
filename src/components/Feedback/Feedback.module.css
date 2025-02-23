@@ -3,3 +3,7 @@
     flex-direction: column;
     align-items: flex-start;
 }
+
+.feedback_ps {
+    margin-top: 2px;
+}
